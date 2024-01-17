@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment_4B
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the size of the square:");
+            int size = Convert.ToInt32(Console.ReadLine());
+            while (size<=0) 
+            {
+              Console.WriteLine("Invalid input!");
+              Console.WriteLine("Enter the size of the square:");
+                size= Convert.ToInt32(Console.ReadLine());
+                
+            }
+            Console.WriteLine("Enter the size of the border");
+            int border = Convert.ToInt32(Console.ReadLine());
+            while (border <= 0 && border < size)
+            {
+                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Enter the size of the border:");
+                border = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("Enter the color of the square:");
+            int color = Convert.ToInt32(Console.ReadLine());
+            while (color< 0 || color> 1)
+            {
+                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Enter the color of the square:");
+                color = Convert.ToInt32(Console.ReadLine());
+
+            }
+            Console.WriteLine("Enter the color of the border:");
+            int bordercolor = Convert.ToInt32(Console.ReadLine());
+            while (bordercolor==color)
+            {
+                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Enter the color of the border:");
+                bordercolor = Convert.ToInt32(Console.ReadLine());
+                
+            }
+            
+            Console.WriteLine("PBM File Contents:");
+            Console.WriteLine("P1");
+            int width = size + border * 2;
+            int height = size + border * 2;
+            Console.WriteLine((size) + border + border + " " + (size + border + border));
+            string newdata = "";
+            for (int i=0;  i<height; i++)
+            {
+              for (int j=0; j<width; j++)
+                {
+                    if (i < border || i >= height - border ||  j < border || j >= width - border)
+                    {
+                        newdata += bordercolor + " ";
+                       
+                    }
+                    else
+                    {
+                        newdata += color + " ";
+                    }
+
+
+                }
+                newdata += " \n";
+
+            }
+            Console.WriteLine(newdata);
+        }
+    }
+}
