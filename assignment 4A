@@ -1,0 +1,49 @@
+{
+        static void Main(string[] args)
+        {
+            Console.WriteLine("What loop do you want to use");
+            Console.WriteLine("1) A loop that might run zero or more times ");
+            Console.WriteLine("2) A loop that will always run at least once ");
+            Console.WriteLine("3) A loop with a predetermined start and end");
+                int zero= Convert.ToInt32(Console.ReadLine());
+            if (zero == 1)
+            {
+                Console.WriteLine("Whats your start number");
+                int start = Convert.ToInt32(Console.ReadLine());
+                while (start > 0)
+                {
+                    Console.Write(start + ",");
+                    start--;
+                }
+
+            }
+            else if (zero == 2)
+            {
+                int start = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("What’s your start number?");
+                do
+                {
+                    Console.Write(start + ",");
+                    start--;
+                }
+                while (start > 0); 
+              
+                
+            }
+            if (zero == 3)
+            {
+                Console.WriteLine("What's your start number?");
+                int start = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("What’s your end number?");
+                int end = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Counting:");
+                for (int i = start; i >= end; i--) 
+                {
+                    Console.Write(start + ",");
+                    start--;
+                }
+            }
+
+        }
+    }
+}
